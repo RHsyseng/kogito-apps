@@ -6,5 +6,9 @@
         "src/**/*.jsx",
         "src/**/*.js",
         "../../config/declare.d.ts"
+    ],
+    "exclude": [
+        "src/graphql/queries.tsx",
+        "node_modules"
     ]
 }
