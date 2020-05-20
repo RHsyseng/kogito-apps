@@ -10,6 +10,7 @@ import {
   Card,
   Bullseye
 } from '@patternfly/react-core';
+import { ServerErrors } from '@kogito-apps/common/src/components';
 import { FilterIcon } from '@patternfly/react-icons';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
@@ -18,12 +19,11 @@ import DomainExplorerColumnPicker from '../../Organisms/DomainExplorerColumnPick
 import DomainExplorerTable from '../../Organisms/DomainExplorerTable/DomainExplorerTable';
 import PageTitleComponent from '../../Molecules/PageTitleComponent/PageTitleComponent';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
-import ServerErrorsComponent from '../../Molecules/ServerErrorsComponent/ServerErrorsComponent';
+import LoadMoreComponent from '../../Atoms/LoadMoreComponent/LoadMoreComponent';
 
 import {
   useGetQueryTypesQuery,
   useGetQueryFieldsQuery,
-  useGetInputFieldsFromQueryQuery,
   useGetColumnPickerAttributesQuery
 } from '../../../graphql/types';
 
@@ -32,6 +32,11 @@ export interface IOwnProps {
 }
 
 const DomainExplorerDashboard = props => {
+  const rememberedParams =
+    (props.location.state && props.location.state.parameters) || [];
+  const rememberedSelections =
+    (props.location.state && props.location.state.selected) || [];
+  const [defaultPageSize] = useState(10);
   const domainName = props.match.params.domainName;
   let BreadCrumb = props.location.pathname.split('/');
   BreadCrumb = BreadCrumb.filter(item => {
@@ -40,14 +45,19 @@ const DomainExplorerDashboard = props => {
     }
   });
   const [pathName] = BreadCrumb.slice(-1);
-  const [currentQuery, setCurrentQuery] = useState('');
   const [columnPickerType, setColumnPickerType] = useState('');
   const [columnFilters, setColumnFilters] = useState({});
   const [tableLoading, setTableLoading] = useState(true);
   const [displayTable, setDisplayTable] = useState(false);
   const [displayEmptyState, setDisplayEmptyState] = useState(false);
   const [selected, setSelected] = useState([]);
+  const [limit, setLimit] = useState(defaultPageSize);
+  const [offset, setOffset] = useState(0);
+  const [pageSize, setPageSize] = useState(defaultPageSize);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [rows, setRows] = useState([]);
   const [error, setError] = useState();
+  const [enableCache, setEnableCache] = useState(false);
   const [parameters, setParameters] = useState([
     {
       metadata: [
@@ -65,26 +75,22 @@ const DomainExplorerDashboard = props => {
     }
   ]);
 
+  useEffect(() => {
+    if (domainName) {
+      setColumnPickerType(domainName);
+    }
+  }, []);
+
   const getQuery = useGetQueryFieldsQuery();
   const getQueryTypes = useGetQueryTypesQuery();
   const getPicker = useGetColumnPickerAttributesQuery({
-    variables: { columnPickerType }
+    variables: { columnPickerType: domainName }
   });
 
-  useEffect(() => {
-    setColumnPickerType(domainName);
-    if (getQuery.data) {
-      const _a =
-        !getQuery.loading &&
-        getQuery.data.__type.fields.find(item => {
-          if (item.name === domainName) {
-            return item;
-          }
-        });
-
-      setCurrentQuery(_a.args[0].type.name);
-    }
-  }, []);
+  const onAddColumnFilters = _columnFilter => {
+    setColumnFilters(_columnFilter);
+    setLimit(_columnFilter.length);
+  };
 
   let data = [];
   const tempArray = [];
@@ -127,28 +133,15 @@ const DomainExplorerDashboard = props => {
   defaultParams = defaultParams.slice(0, 5);
 
   useEffect(() => {
-    setParameters(prev => [...defaultParams, ...prev]);
-    setSelected(selections);
-  }, [columnPickerType, selections.length > 0]);
-
-  useEffect(() => {
-    setColumnPickerType(domainName);
-    if (getQuery.data) {
-      const _a =
-        !getQuery.loading &&
-        getQuery.data.__type.fields.find(item => {
-          if (item.name === domainName) {
-            return item;
-          }
-        });
-
-      setCurrentQuery(_a.args[0].type.name);
+    if (rememberedParams.length > 0) {
+      setEnableCache(true);
+      setParameters(rememberedParams);
+      setSelected(rememberedSelections);
+    } else {
+      setParameters(prev => [...defaultParams, ...prev]);
+      setSelected(selections);
     }
-  }, []);
-
-  const getSchema: any = useGetInputFieldsFromQueryQuery({
-    variables: { currentQuery }
-  });
+  }, [columnPickerType, selections.length > 0]);
 
   const renderToolbar = () => {
     return (
@@ -160,10 +153,10 @@ const DomainExplorerDashboard = props => {
         <DataToolbarContent>
           <DataToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
             <DataToolbarGroup>
-              {!getSchema.loading && (
+              {!getPicker.loading && (
                 <DomainExplorerColumnPicker
                   columnPickerType={columnPickerType}
-                  setColumnFilters={setColumnFilters}
+                  setColumnFilters={onAddColumnFilters}
                   setTableLoading={setTableLoading}
                   getQueryTypes={getQueryTypes}
                   setDisplayTable={setDisplayTable}
@@ -175,6 +168,15 @@ const DomainExplorerDashboard = props => {
                   getPicker={getPicker}
                   setError={setError}
                   setDisplayEmptyState={setDisplayEmptyState}
+                  rememberedParams={rememberedParams}
+                  enableCache={enableCache}
+                  setEnableCache={setEnableCache}
+                  pageSize={pageSize}
+                  offsetVal={offset}
+                  setOffsetVal={setOffset}
+                  setPageSize={setPageSize}
+                  setIsLoadingMore={setIsLoadingMore}
+                  isLoadingMore={isLoadingMore}
                 />
               )}
             </DataToolbarGroup>
@@ -185,16 +187,23 @@ const DomainExplorerDashboard = props => {
   };
 
   if (!getQuery.loading && getQuery.error) {
-    return <ServerErrorsComponent message={getQuery.error} />;
+    return <ServerErrors error={getQuery.error} />;
   }
 
   if (!getQueryTypes.loading && getQueryTypes.error) {
-    return <ServerErrorsComponent message={getQueryTypes.error} />;
+    return <ServerErrors error={getQueryTypes.error} />;
   }
 
   if (!getPicker.loading && getPicker.error) {
-    return <ServerErrorsComponent message={getPicker.error} />;
+    return <ServerErrors error={getPicker.error} />;
   }
+
+  const onGetMoreInstances = (initVal, _pageSize) => {
+    setOffset(initVal);
+    setPageSize(_pageSize);
+    setIsLoadingMore(true);
+  };
+
   return (
     <>
       {!getQuery.loading &&
@@ -241,14 +250,29 @@ const DomainExplorerDashboard = props => {
         <PageSection>
           {renderToolbar()}
 
-          {!tableLoading ? (
+          {!tableLoading || isLoadingMore ? (
             <div className="kogito-management-console--domain-explorer__table-OverFlow">
               <DomainExplorerTable
                 columnFilters={columnFilters}
                 tableLoading={tableLoading}
                 displayTable={displayTable}
                 displayEmptyState={displayEmptyState}
+                parameters={parameters}
+                selected={selected}
+                offset={offset}
+                setRows={setRows}
+                rows={rows}
+                isLoadingMore={isLoadingMore}
               />
+              {!displayEmptyState && (limit === pageSize || isLoadingMore) && (
+                <LoadMoreComponent
+                  offset={offset}
+                  setOffset={setOffset}
+                  getMoreItems={onGetMoreInstances}
+                  pageSize={pageSize}
+                  isLoadingMore={isLoadingMore}
+                />
+              )}
             </div>
           ) : (
             <Card>
@@ -259,7 +283,7 @@ const DomainExplorerDashboard = props => {
           )}
         </PageSection>
       ) : (
-        <ServerErrorsComponent message={error} />
+        <ServerErrors error={error} />
       )}
     </>
   );

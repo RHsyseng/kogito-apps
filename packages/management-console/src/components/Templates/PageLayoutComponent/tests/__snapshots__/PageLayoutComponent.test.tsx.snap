@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLayoutComponent component tests snapshot testing 1`] = `
+<PageLayoutComponent
+  location={
+    Object {
+      "pathname": "/ProcessInstances",
+    }
+  }
+/>
+`;

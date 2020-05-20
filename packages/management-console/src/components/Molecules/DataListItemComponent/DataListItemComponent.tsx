@@ -1,7 +1,6 @@
 import Moment from 'react-moment';
 import React, { useState, useEffect } from 'react';
 import {
-  Button,
   DataListAction,
   DataListCell,
   DataListCheck,
@@ -14,9 +13,9 @@ import {
   DropdownItem,
   DropdownPosition,
   Bullseye,
-  KebabToggle,
-  Tooltip
+  KebabToggle
 } from '@patternfly/react-core';
+import { ServerErrors } from '@kogito-apps/common/src/components';
 import { Link } from 'react-router-dom';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 import {
@@ -24,12 +23,11 @@ import {
   ProcessInstance
 } from '../../../graphql/types';
 import EmptyStateComponent from '../../Atoms/EmptyStateComponent/EmptyStateComponent';
-import { ExternalLinkAltIcon, HistoryIcon } from '@patternfly/react-icons';
+import { HistoryIcon } from '@patternfly/react-icons';
 import ErrorPopover from '../../Atoms/ErrorPopoverComponent/ErrorPopoverComponent';
 import ProcessBulkModalComponent from '../../Atoms/ProcessBulkModalComponent/ProcessBulkModalComponent';
-import ServerErrorsComponents from '../../Molecules/ServerErrorsComponent/ServerErrorsComponent';
 import ProcessDescriptor from '../ProcessDescriptor/ProcessDescriptor';
-import DisablePopup from '../DiablePopup/DisablePopup';
+import DisablePopup from '../DisablePopup/DisablePopup';
 import {
   stateIconCreator,
   setTitle,
@@ -39,6 +37,7 @@ import {
   isModalOpen,
   modalToggle
 } from '../../../utils/Utils';
+import EndpointLink from '../EndpointLink/EndpointLink';
 interface IOwnProps {
   id: number;
   processInstanceData: ProcessInstance;
@@ -340,6 +339,7 @@ const DataListItemComponent: React.FC<IOwnProps> = ({
           processInstanceData.serviceUrl !== null ? (
             <DataListCheck
               aria-labelledby={'kie-datalist-item-' + processInstanceData.id}
+              name="width-kie-datalist-item"
               checked={processInstanceData[isChecked]}
               onChange={() => {
                 onCheckBoxClick();
@@ -373,37 +373,10 @@ const DataListItemComponent: React.FC<IOwnProps> = ({
                     </strong>
                   </div>
                 </Link>
-                {!processInstanceData.rootProcessInstanceId &&
-                processInstanceData.serviceUrl !== null ? (
-                  <Button
-                    component={'a'}
-                    variant={'link'}
-                    target={'_blank'}
-                    href={`${processInstanceData.serviceUrl}`}
-                    isInline={true}
-                  >
-                    Endpoint{<ExternalLinkAltIcon className="pf-u-ml-xs" />}
-                  </Button>
-                ) : (
-                  <Tooltip content="This Kogito runtime is missing the kogito.service.url property. Contact your administrator to set up.">
-                    <>
-                      <span
-                        style={{
-                          color: 'var(--pf-global--disabled-color--100)'
-                        }}
-                      >
-                        {' '}
-                        Endpoint
-                      </span>
-                      {
-                        <ExternalLinkAltIcon
-                          className="pf-u-ml-xs"
-                          color="var(--pf-global--disabled-color--100)"
-                        />
-                      }
-                    </>
-                  </Tooltip>
-                )}
+                <EndpointLink
+                  serviceUrl={processInstanceData.serviceUrl}
+                  isLinkShown={false}
+                />
               </DataListCell>,
               <DataListCell key={4}>
                 {processInstanceData.state === 'ERROR' ? (
@@ -524,7 +497,7 @@ const DataListItemComponent: React.FC<IOwnProps> = ({
               <SpinnerComponent spinnerText="Loading process instances..." />
             </Bullseye>
           )}
-          {error && <ServerErrorsComponents message={error} />}
+          {error && <ServerErrors error={error} />}
         </DataListContent>
       </DataListItem>
     </React.Fragment>

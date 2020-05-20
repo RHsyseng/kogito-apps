@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack');
@@ -30,7 +31,8 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.resolve('./tsconfig.json')
+              configFile: path.resolve('./tsconfig.json'),
+              allowTsInNodeModules: true
             }
           }
         ]
@@ -51,7 +53,12 @@ module.exports = {
           path.resolve(
             '../../node_modules/@patternfly/patternfly/assets/pficon'
           ),
+<<<<<<< HEAD
           path.resolve('./src/static')
+=======
+          path.resolve('./src/static'),
+          path.resolve('../../node_modules/@kogito-apps/common/src/static')
+>>>>>>> master
         ],
         use: {
           loader: 'file-loader',
@@ -86,7 +93,10 @@ module.exports = {
         }
       },
       {
+<<<<<<< HEAD
         test: /\.(jpg|jpeg|png|gif)$/i,
+=======
+>>>>>>> master
         include: [
           path.resolve(__dirname, 'src'),
           path.resolve('../../node_modules/patternfly'),
@@ -104,6 +114,10 @@ module.exports = {
           ),
           path.resolve(
             '../../node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'
+          ),
+          path.resolve(
+            __dirname,
+            '../../node_modules/@kogito-apps/common/src/static'
           )
         ],
         use: [
@@ -124,6 +138,24 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
+<<<<<<< HEAD
+=======
+  plugins: [
+    new HtmlWebpackPlugin({
+      favicon: 'src/favicon.ico',
+      template: path.resolve(__dirname, 'src', 'index.html')
+    }),
+    new webpack.EnvironmentPlugin({
+      KOGITO_AUTH_ENABLED: false,
+      KOGITO_KEYCLOAK_REALM: 'kogito',
+      KOGITO_KEYCLOAK_URL: 'http://localhost:8280',
+      KOGITO_KEYCLOAK_CLIENT_ID: 'kogito-task-console',
+      KOGITO_DATAINDEX_HTTP_URL: 'http://localhost:4000/graphql',
+      KOGITO_APP_VERSION: 'DEV',
+      KOGITO_APP_NAME: 'Task Console'
+    })
+  ],
+>>>>>>> master
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     modules: [

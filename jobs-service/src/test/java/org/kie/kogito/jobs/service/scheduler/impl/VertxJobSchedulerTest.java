@@ -17,8 +17,6 @@
 package org.kie.kogito.jobs.service.scheduler.impl;
 
 import java.time.Duration;
-import java.util.UUID;
-import java.util.concurrent.CompletionStage;
 import java.util.function.Consumer;
 
 import io.reactivex.Flowable;
@@ -27,14 +25,9 @@ import org.eclipse.microprofile.reactive.streams.operators.PublisherBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kie.kogito.jobs.api.Job;
-import org.kie.kogito.jobs.api.JobBuilder;
-import org.kie.kogito.jobs.service.executor.JobExecutor;
 import org.kie.kogito.jobs.service.model.ScheduledJob;
-import org.kie.kogito.jobs.service.repository.ReactiveJobRepository;
 import org.kie.kogito.jobs.service.scheduler.BaseTimerJobScheduler;
 import org.kie.kogito.jobs.service.scheduler.BaseTimerJobSchedulerTest;
-import org.kie.kogito.jobs.service.utils.DateUtil;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
@@ -49,7 +42,6 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class VertxJobSchedulerTest extends BaseTimerJobSchedulerTest {
@@ -67,7 +59,6 @@ class VertxJobSchedulerTest extends BaseTimerJobSchedulerTest {
     @Captor
     private ArgumentCaptor<Long> timeCaptor;
 
-
     @BeforeEach
     public void setUp() {
         super.setUp();
@@ -84,7 +75,7 @@ class VertxJobSchedulerTest extends BaseTimerJobSchedulerTest {
     void testDoSchedule() {
         PublisherBuilder<String> schedule = tested.doSchedule(Duration.ofMillis(1), job);
         verify(vertx, never()).setTimer(timeCaptor.capture(), handlerCaptor.capture());
-        Flowable.fromPublisher(schedule.buildRs()).subscribe();
+        Flowable.fromPublisher(schedule.buildRs()).subscribe(dummyCallback(), dummyCallback());
         verify(vertx).setTimer(timeCaptor.capture(), handlerCaptor.capture());
         assertJobSchedule();
     }
@@ -100,7 +91,7 @@ class VertxJobSchedulerTest extends BaseTimerJobSchedulerTest {
     void testDoPeriodicSchedule() {
         PublisherBuilder<String> periodicSchedule = tested.doPeriodicSchedule(Duration.ofMillis(1), job);
         verify(vertx, never()).setPeriodic(timeCaptor.capture(), handlerCaptor.capture());
-        Flowable.fromPublisher(periodicSchedule.buildRs()).subscribe();
+        Flowable.fromPublisher(periodicSchedule.buildRs()).subscribe(dummyCallback(), dummyCallback());
         verify(vertx).setPeriodic(timeCaptor.capture(), handlerCaptor.capture());
         assertJobSchedule();
     }
@@ -109,7 +100,14 @@ class VertxJobSchedulerTest extends BaseTimerJobSchedulerTest {
     void testDoCancel() {
         Publisher<Boolean> cancel = tested.doCancel(ScheduledJob.builder().job(job).scheduledId(SCHEDULED_ID).build());
         verify(vertx, never()).cancelTimer(Long.valueOf(SCHEDULED_ID));
-        Flowable.fromPublisher(cancel).subscribe();
+        Flowable.fromPublisher(cancel).subscribe(dummyCallback(), dummyCallback());
         verify(vertx).cancelTimer(Long.valueOf(SCHEDULED_ID));
+    }
+
+    @Test
+    void testDoCancelNullId() {
+        Publisher<Boolean> cancel = tested.doCancel(ScheduledJob.builder().job(job).scheduledId(null).build());
+        Flowable.fromPublisher(cancel).subscribe(dummyCallback(), dummyCallback());
+        verify(vertx, never()).cancelTimer(anyLong());
     }
 }

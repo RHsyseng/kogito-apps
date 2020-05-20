@@ -26,6 +26,15 @@ export interface IOwnProps {
   getPicker: any;
   setError: any;
   setDisplayEmptyState: any;
+  rememberedParams: any;
+  enableCache: boolean;
+  setEnableCache: any;
+  offsetVal: number;
+  pageSize: number;
+  setOffsetVal: (offsetVal: number) => void;
+  setPageSize: (pageSize: number) => void;
+  setIsLoadingMore: (isLoadingMoreVal: boolean) => void;
+  isLoadingMore: boolean;
 }
 
 const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
@@ -41,7 +50,16 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   data,
   getPicker,
   setError,
-  setDisplayEmptyState
+  setDisplayEmptyState,
+  rememberedParams,
+  enableCache,
+  setEnableCache,
+  pageSize,
+  offsetVal,
+  setOffsetVal,
+  setPageSize,
+  setIsLoadingMore,
+  isLoadingMore
 }) => {
   // tslint:disable: forin
   // tslint:disable: no-floating-promises
@@ -97,7 +115,18 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   };
 
   useEffect(() => {
-    parameters.length !== 1 && generateQuery();
+    if (isLoadingMore) {
+      generateQuery(parameters);
+    }
+  }, [isLoadingMore]);
+
+  useEffect(() => {
+    if (
+      (rememberedParams.length === 0 && parameters.length !== 1) ||
+      rememberedParams.length > 0
+    ) {
+      generateQuery(parameters);
+    }
   }, [parameters.length > 1]);
 
   const nestedCheck = (ele, valueObj) => {
@@ -152,13 +181,13 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     }
   };
 
-  const validateResponse = obj => {
+  const validateResponse = (obj, paramFields) => {
     let contentObj = {};
     for (const prop in obj) {
       const arr = [];
       if (obj[prop] === null) {
         const parentObj = {};
-        parameters.map(params => {
+        paramFields.map(params => {
           if (params.hasOwnProperty(prop)) {
             arr.push(params);
           }
@@ -178,13 +207,19 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     return contentObj;
   };
 
-  async function generateQuery() {
+  async function generateQuery(paramFields) {
     setTableLoading(true);
     setEnableRefresh(true);
-    if (columnPickerType && parameters.length > 1) {
+    if (columnPickerType && paramFields.length > 1) {
       const Query = query({
         operation: columnPickerType,
-        fields: parameters
+        fields: paramFields,
+        variables: {
+          pagination: {
+            value: { offset: offsetVal, limit: pageSize },
+            type: 'Pagination'
+          }
+        }
       });
 
       try {
@@ -193,10 +228,10 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
             query: gql`
               ${Query.query}
             `,
-            fetchPolicy: 'no-cache'
+            variables: Query.variables,
+            fetchPolicy: enableCache ? 'cache-first' : 'network-only'
           })
           .then(response => {
-            setTableLoading(false);
             const firstKey = Object.keys(response.data)[0];
             if (response.data[firstKey].length > 0) {
               const resp = response.data;
@@ -204,19 +239,25 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
               const tableContent = resp[respKeys];
               const finalResp = [];
               tableContent.map(content => {
-                const finalObject = validateResponse(content);
+                const finalObject = validateResponse(content, paramFields);
                 finalResp.push(finalObject);
               });
               setColumnFilters(finalResp);
+              setTableLoading(false);
               setDisplayTable(true);
+              setEnableCache(false);
+              setIsLoadingMore(false);
             } else {
+              setTableLoading(false);
               setDisplayEmptyState(true);
+              setEnableCache(false);
             }
           });
       } catch (error) {
         setError(error);
       }
     } else {
+      setTableLoading(false);
       setDisplayEmptyState(false);
       setDisplayTable(false);
     }
@@ -341,9 +382,18 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     return unique;
   }
 
+  const onResetQuery = _parameters => {
+    setOffsetVal(0);
+    offsetVal = 0;
+    setPageSize(10);
+    pageSize = 10;
+    generateQuery(_parameters);
+    setIsLoadingMore(false);
+  };
+
   const onRefresh = () => {
     if (enableRefresh && parameters.length > 1) {
-      generateQuery();
+      onResetQuery(parameters);
     }
   };
 
@@ -365,12 +415,19 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
           >
             {getAllChilds(finalResult, 'props')}
           </Select>
-          <Button variant="primary" onClick={generateQuery}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              onResetQuery(parameters);
+            }}
+          >
             Apply columns
           </Button>
           <Button
             variant="plain"
-            onClick={onRefresh}
+            onClick={() => {
+              onRefresh();
+            }}
             className="pf-u-m-md"
             aria-label={'Refresh list'}
           >

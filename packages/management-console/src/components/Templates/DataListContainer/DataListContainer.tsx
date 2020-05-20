@@ -2,13 +2,11 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Card,
-  DataList,
-  DataListItem,
-  DataListCell,
   Grid,
   GridItem,
   PageSection
 } from '@patternfly/react-core';
+import { ServerErrors } from '@kogito-apps/common/src/components';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageTitleComponent from '../../Molecules/PageTitleComponent/PageTitleComponent';
@@ -25,10 +23,9 @@ import {
 } from '../../../graphql/types';
 import axios from 'axios';
 import { InfoCircleIcon } from '@patternfly/react-icons';
-import ServerErrorsComponent from '../../Molecules/ServerErrorsComponent/ServerErrorsComponent';
 
 const DataListContainer: React.FC<{}> = () => {
-  const pSize = 10;
+  const [defaultPageSize] = useState(10);
   const [initData, setInitData] = useState<any>({});
   const [checkedArray, setCheckedArray] = useState<any>(['ACTIVE']);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,11 +37,10 @@ const DataListContainer: React.FC<{}> = () => {
   const [completedMessageObj, setCompletedMessageObj] = useState({});
   const [titleType, setTitleType] = useState('');
   const [modalTitle, setModalTitle] = useState('');
-  const [limit, setLimit] = useState(pSize);
+  const [limit, setLimit] = useState(defaultPageSize);
   const [offset, setOffset] = useState(10);
-  const [pageSize, setPageSize] = useState(pSize);
+  const [pageSize, setPageSize] = useState(defaultPageSize);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [isDefiningFilter, setIsDefiningFilter] = useState(true);
   const [filters, setFilters] = useState({
     status: ['ACTIVE'],
     businessKey: []
@@ -69,11 +65,18 @@ const DataListContainer: React.FC<{}> = () => {
     notifyOnNetworkStatusChange: true
   });
 
+  const resetPagination = () => {
+    setOffset(0);
+    setLimit(defaultPageSize);
+    setPageSize(defaultPageSize);
+  };
+
   const handleAbortModalToggle = () => {
     setIsAbortModalOpen(!isAbortModalOpen);
   };
 
   const onFilterClick = async (arr = checkedArray) => {
+    resetPagination();
     const searchWordsArray = [];
     const copyOfBusinessKeysArray = [...filters.businessKey];
     if (searchWord.length !== 0) {
@@ -100,20 +103,17 @@ const DataListContainer: React.FC<{}> = () => {
     setIsStatusSelected(true);
     setIsAllChecked(false);
     setSelectedNumber(0);
-    setLimit(pSize);
-    setPageSize(pSize);
-    setOffset(0);
     setInitData({});
     if (searchWordsArray.length === 0) {
       getProcessInstances({
-        variables: { state: arr, offset: 0, limit: pSize }
+        variables: { state: arr, offset: 0, limit: defaultPageSize }
       });
     } else {
       getProcessInstancesWithBusinessKey({
         variables: {
           state: arr,
           offset: 0,
-          limit: pSize,
+          limit: defaultPageSize,
           businessKeys: searchWordsArray
         }
       });
@@ -132,7 +132,6 @@ const DataListContainer: React.FC<{}> = () => {
     setAbortedObj({});
     setAbortedMessageObj({});
     setCompletedMessageObj({});
-    setIsDefiningFilter(false);
     if (isLoadingMore === undefined || !isLoadingMore) {
       setIsLoading(loading);
     }
@@ -158,7 +157,6 @@ const DataListContainer: React.FC<{}> = () => {
     setAbortedObj({});
     setAbortedMessageObj({});
     setCompletedMessageObj({});
-    setIsDefiningFilter(false);
     if (isLoadingMore === undefined || !isLoadingMore) {
       setIsLoading(getProcessInstancesWithBK.loading);
     }
@@ -182,12 +180,6 @@ const DataListContainer: React.FC<{}> = () => {
       }
     }
   }, [getProcessInstancesWithBK.data]);
-
-  useEffect(() => {
-    setOffset(0);
-    setLimit(pSize);
-    setIsDefiningFilter(true);
-  }, [checkedArray]);
 
   const setTitle = (titleStatus, titleText) => {
     switch (titleStatus) {
@@ -283,9 +275,7 @@ const DataListContainer: React.FC<{}> = () => {
 
   if (error || getProcessInstancesWithBK.error) {
     return (
-      <ServerErrorsComponent
-        message={error ? error : getProcessInstancesWithBK.error}
-      />
+      <ServerErrors error={error ? error : getProcessInstancesWithBK.error} />
     );
   }
   return (
@@ -332,10 +322,7 @@ const DataListContainer: React.FC<{}> = () => {
                     abortedObj={abortedObj}
                     setAbortedObj={setAbortedObj}
                     handleAbortAll={handleAbortAll}
-                    setOffset={setOffset}
                     getProcessInstances={getProcessInstances}
-                    setLimit={setLimit}
-                    pageSize={pSize}
                     setSearchWord={setSearchWord}
                     searchWord={searchWord}
                     isAllChecked={isAllChecked}
@@ -350,11 +337,9 @@ const DataListContainer: React.FC<{}> = () => {
                   initData={initData}
                   setInitData={setInitData}
                   isLoading={isLoading}
-                  setIsLoading={setIsDefiningFilter}
                   setIsError={setIsError}
                   checkedArray={checkedArray}
-                  pageSize={pSize}
-                  isLoadingMore={isLoadingMore}
+                  pageSize={defaultPageSize}
                   abortedObj={abortedObj}
                   setAbortedObj={setAbortedObj}
                   isFilterClicked={isFilterClicked}
@@ -375,23 +360,17 @@ const DataListContainer: React.FC<{}> = () => {
                   filters={filters}
                 />
               )}
-              {!loading &&
+              {(!loading || isLoadingMore) &&
                 !isLoading &&
-                !isDefiningFilter &&
                 initData !== undefined &&
-                limit === pageSize && (
-                  <DataList aria-label="Simple data list example">
-                    <DataListItem aria-labelledby="kie-datalist-item">
-                      <DataListCell className="kogito-management-console-load-more">
-                        <LoadMoreComponent
-                          offset={offset}
-                          setOffset={setOffset}
-                          getProcessInstances={onGetMoreInstances}
-                          pageSize={pageSize}
-                        />
-                      </DataListCell>
-                    </DataListItem>
-                  </DataList>
+                (limit === pageSize || isLoadingMore) && (
+                  <LoadMoreComponent
+                    offset={offset}
+                    setOffset={setOffset}
+                    getMoreItems={onGetMoreInstances}
+                    pageSize={pageSize}
+                    isLoadingMore={isLoadingMore}
+                  />
                 )}
             </Card>
           </GridItem>

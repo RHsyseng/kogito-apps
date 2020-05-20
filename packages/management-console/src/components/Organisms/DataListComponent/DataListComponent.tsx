@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react';
-import {
-  DataList,
-  DataListCell,
-  Bullseye,
-  Button,
-  Spinner
-} from '@patternfly/react-core';
+import { DataList, Bullseye } from '@patternfly/react-core';
+import { ServerErrors } from '@kogito-apps/common/src/components';
 import '../../Templates/DataListContainer/DataList.css';
 import DataListItemComponent from '../../Molecules/DataListItemComponent/DataListItemComponent';
-import ServerErrorsComponent from '../../Molecules/ServerErrorsComponent/ServerErrorsComponent';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 import EmptyStateComponent from '../../Atoms/EmptyStateComponent/EmptyStateComponent';
 import '@patternfly/patternfly/patternfly-addons.css';
@@ -23,12 +17,10 @@ interface IOwnProps {
   initData: any;
   isLoading: boolean;
   setIsError: any;
-  setIsLoading: any;
   checkedArray: any;
   abortedObj: any;
   setAbortedObj: any;
   pageSize: number;
-  isLoadingMore: boolean;
   isFilterClicked: boolean;
   filters: any;
   setIsAllChecked: any;
@@ -41,12 +33,10 @@ const DataListComponent: React.FC<IOwnProps> = ({
   setInitData,
   isLoading,
   setIsError,
-  setIsLoading,
   checkedArray,
   abortedObj,
   setAbortedObj,
   pageSize,
-  isLoadingMore,
   isFilterClicked,
   filters,
   setIsAllChecked,
@@ -99,7 +89,7 @@ const DataListComponent: React.FC<IOwnProps> = ({
 
   if (error) {
     setIsError(true);
-    return <ServerErrorsComponent message={error} />;
+    return <ServerErrors error={error} />;
   }
 
   return (
@@ -133,13 +123,6 @@ const DataListComponent: React.FC<IOwnProps> = ({
             body="Try using different filters"
           />
         )}
-      {isLoadingMore && (
-        <DataListCell className="kogito-management-console-load-more">
-          <Button variant="secondary">
-            Loading... <Spinner size="md" />
-          </Button>
-        </DataListCell>
-      )}
     </DataList>
   );
 };

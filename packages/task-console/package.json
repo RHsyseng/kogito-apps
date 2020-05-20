@@ -65,6 +65,11 @@
       "tsx",
       "js"
     ],
+    "globals": {
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    },
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
@@ -78,12 +83,11 @@
       "**/tests/*.(ts|tsx|js)"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg)$": "../../config/Jest-config/fileMock.js",
       "\\.(scss|sass|css)$": "identity-obj-proxy"
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,js}": [
+    "*.{ts,tsx}": [
       "yarn run format",
       "yarn run lint"
     ]
