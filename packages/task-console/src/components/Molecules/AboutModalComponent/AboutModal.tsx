@@ -7,7 +7,6 @@ import {
   TextListItem
 } from '@patternfly/react-core';
 import './AboutModal.css';
-// import aboutPageLogo from '../../../static/managementConsoleLogo.svg';
 import aboutPageLogo from '../../../static/kogitoLogo.png';
 import aboutPageBackground from '../../../static/KogitoAbout.png';
 import { version } from '../../../../package.json';

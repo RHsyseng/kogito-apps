@@ -5,7 +5,7 @@ import _ from 'lodash';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 import EmptyStateComponent from '../../Atoms/EmptyStateComponent/EmptyStateComponent';
 import '@patternfly/patternfly/patternfly-addons.css';
-import { useGetUserTasksByStatesQuery } from '../../../graphql/types';
+import { useGetUserTasksByStatesQuery, NetworkStatus } from '../../../graphql/types';
 
 const DataTableComponent: React.FC = ({}) => {
 
@@ -99,7 +99,7 @@ const DataTableComponent: React.FC = ({}) => {
     );
   }
 
-  if (networkStatus === 4) {
+  if (networkStatus === NetworkStatus.refetch) {
     return (
       <Bullseye>
         <SpinnerComponent spinnerText="Loading user tasks..." />
