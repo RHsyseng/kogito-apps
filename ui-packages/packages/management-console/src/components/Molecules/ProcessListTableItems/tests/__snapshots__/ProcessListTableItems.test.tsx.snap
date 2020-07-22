@@ -1,0 +1,441 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProcessListTableItems component tests snapshot tests for no child instances 1`] = `
+<DataListContent
+  aria-label="Primary Content Details"
+  className="kogito-management-console__embedded-list pf-m-compact"
+  id="kie-datalist-expand-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+  isHidden={false}
+  key=".1"
+  rowid="kie-datalist-item-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+>
+  <section
+    aria-label="Primary Content Details"
+    className="pf-c-data-list__expandable-content kogito-management-console__embedded-list pf-m-compact"
+    hidden={false}
+    id="kie-datalist-expand-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+  >
+    <div
+      className="pf-c-data-list__expandable-content-body"
+    >
+      <KogitoEmptyState
+        body="This process has no related sub processes"
+        key="0"
+        title="No child process instances"
+        type={3}
+      >
+        <MockedComponent />
+      </KogitoEmptyState>
+    </div>
+  </section>
+</DataListContent>
+`;
+
+exports[`ProcessListTableItems component tests snapshot tests with an error(status) process instance 1`] = `
+<ErrorPopover
+  onRetryClick={[Function]}
+  onSkipClick={[Function]}
+  processInstanceData={
+    Object {
+      "addons": Array [
+        "process-management",
+      ],
+      "businessKey": null,
+      "childProcessInstances": Array [],
+      "end": null,
+      "endpoint": "http://localhost:4000/",
+      "error": Object {
+        "message": "Something went wrong",
+        "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+      },
+      "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b1",
+      "lastUpdate": null,
+      "nodes": Array [
+        Object {
+          "definitionId": "CallActivity_2",
+          "enter": "2019-10-22T04:43:01.143Z",
+          "exit": "2019-10-22T04:43:01.146Z",
+          "id": "7cdeba99-cd36-4425-980d-e59d44769a3e",
+          "name": "Book Flight",
+          "nodeId": "1",
+          "type": "SubProcessNode",
+        },
+      ],
+      "parentProcessInstance": null,
+      "parentProcessInstanceId": null,
+      "processId": "travels",
+      "processName": "travels1",
+      "roles": Array [],
+      "rootProcessInstanceId": null,
+      "serviceUrl": "http://localhost:4000",
+      "start": null,
+      "state": "ERROR",
+      "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+    }
+  }
+>
+  <Popover
+    appendTo={[Function]}
+    aria-label=""
+    bodyContent={
+      <div>
+        Something went wrong
+      </div>
+    }
+    boundary="window"
+    className=""
+    closeBtnAriaLabel="Close"
+    distance={25}
+    enableFlip={true}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
+    }
+    footerContent={
+      Array [
+        <Unknown
+          className="pf-u-mr-sm"
+          id="skip-button"
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Skip
+        </Unknown>,
+        <Unknown
+          className="pf-u-mr-sm"
+          id="retry-button"
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Retry
+        </Unknown>,
+      ]
+    }
+    headerContent={
+      <div>
+        Process error
+      </div>
+    }
+    hideOnOutsideClick={true}
+    isVisible={null}
+    maxWidth="calc(2rem + 18.75rem)"
+    onHidden={[Function]}
+    onHide={[Function]}
+    onMount={[Function]}
+    onShow={[Function]}
+    onShown={[Function]}
+    position="auto"
+    shouldClose={[Function]}
+    tippyProps={Object {}}
+    zIndex={300}
+  >
+    <PopoverBase
+      appendTo={[Function]}
+      arrow={true}
+      boundary="window"
+      content={<React.Fragment />}
+      distance={25}
+      flip={true}
+      flipBehavior={
+        Array [
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "top",
+          "right",
+          "bottom",
+        ]
+      }
+      hideOnClick={true}
+      interactive={true}
+      interactiveBorder={0}
+      isVisible={null}
+      lazy={true}
+      maxWidth="calc(2rem + 18.75rem)"
+      onCreate={[Function]}
+      onHidden={[Function]}
+      onHide={[Function]}
+      onMount={[Function]}
+      onShow={[Function]}
+      onShown={[Function]}
+      placement="auto"
+      popperOptions={
+        Object {
+          "modifiers": Object {
+            "hide": Object {
+              "enabled": true,
+            },
+            "preventOverflow": Object {
+              "enabled": true,
+            },
+          },
+        }
+      }
+      theme="pf-popover"
+      trigger="click"
+      zIndex={300}
+    >
+      <Component
+        isInline={true}
+        variant="link"
+      >
+        <ComponentWithOuia
+          component={[Function]}
+          componentProps={
+            Object {
+              "children": <React.Fragment>
+                <ErrorCircleOIcon
+                  className="pf-u-mr-sm"
+                  color="var(--pf-global--danger-color--100)"
+                />
+                Error
+              </React.Fragment>,
+              "isInline": true,
+              "variant": "link",
+            }
+          }
+          consumerContext={null}
+        >
+          <Button
+            isInline={true}
+            ouiaContext={
+              Object {
+                "isOuia": false,
+                "ouiaId": null,
+              }
+            }
+            variant="link"
+          >
+            <button
+              aria-disabled={null}
+              aria-label={null}
+              className="pf-c-button pf-m-link pf-m-inline"
+              disabled={false}
+              tabIndex={null}
+              type="button"
+            >
+              <span
+                className="pf-c-button__text"
+              >
+                <ErrorCircleOIcon
+                  className="pf-u-mr-sm"
+                  color="var(--pf-global--danger-color--100)"
+                >
+                  <MockedComponent />
+                </ErrorCircleOIcon>
+                Error
+              </span>
+            </button>
+          </Button>
+        </ComponentWithOuia>
+      </Component>
+      <Portal
+        containerInfo={<div />}
+      />
+    </PopoverBase>
+  </Popover>
+</ErrorPopover>
+`;
+
+exports[`ProcessListTableItems component tests snapshot tests with disabled popup 1`] = `
+<DisablePopup
+  component={
+    <DataListCheck
+      aria-labelledby="kie-datalist-item-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+      isDisabled={true}
+    />
+  }
+  key=".1"
+  processInstanceData={
+    Object {
+      "addons": Array [],
+      "businessKey": null,
+      "childProcessInstances": Array [],
+      "end": null,
+      "endpoint": null,
+      "error": Object {
+        "message": "Something went wrong",
+        "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+      },
+      "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b1",
+      "lastUpdate": null,
+      "nodes": Array [
+        Object {
+          "definitionId": "CallActivity_2",
+          "enter": "2019-10-22T04:43:01.143Z",
+          "exit": "2019-10-22T04:43:01.146Z",
+          "id": "7cdeba99-cd36-4425-980d-e59d44769a3e",
+          "name": "Book Flight",
+          "nodeId": "1",
+          "type": "SubProcessNode",
+        },
+      ],
+      "parentProcessInstance": null,
+      "parentProcessInstanceId": null,
+      "processId": "travels",
+      "processName": "travels1",
+      "roles": Array [],
+      "rootProcessInstanceId": null,
+      "serviceUrl": null,
+      "start": null,
+      "state": "ERROR",
+      "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+    }
+  }
+  rowid="kie-datalist-item-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+>
+  <Tooltip
+    appendTo={[Function]}
+    aria="describedby"
+    boundary="window"
+    className=""
+    content="Management add-on capability not enabled & missing the kogito.service.url property. Contact your administrator to set up."
+    distance={-15}
+    enableFlip={true}
+    entryDelay={500}
+    exitDelay={500}
+    flipBehavior={
+      Array [
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "top",
+        "right",
+        "bottom",
+      ]
+    }
+    id=""
+    isAppLauncher={false}
+    isContentLeftAligned={false}
+    isVisible={false}
+    maxWidth="18.75rem"
+    position="top"
+    tippyProps={Object {}}
+    trigger="mouseenter focus"
+    zIndex={9999}
+  >
+    <PopoverBase
+      appendTo={[Function]}
+      aria="describedby"
+      arrow={true}
+      boundary="window"
+      content={
+        <div
+          className=""
+          id=""
+          role="tooltip"
+        >
+          <TooltipContent
+            isLeftAligned={false}
+          >
+            Management add-on capability not enabled & missing the kogito.service.url property. Contact your administrator to set up.
+          </TooltipContent>
+        </div>
+      }
+      delay={
+        Array [
+          500,
+          500,
+        ]
+      }
+      distance={-15}
+      flip={true}
+      flipBehavior={
+        Array [
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "top",
+          "right",
+          "bottom",
+        ]
+      }
+      isVisible={false}
+      lazy={true}
+      maxWidth="18.75rem"
+      onCreate={[Function]}
+      placement="top"
+      popperOptions={
+        Object {
+          "modifiers": Object {
+            "hide": Object {
+              "enabled": true,
+            },
+            "preventOverflow": Object {
+              "enabled": true,
+            },
+          },
+        }
+      }
+      theme="pf-tooltip"
+      trigger="mouseenter focus"
+      zIndex={9999}
+    >
+      <DataListCheck
+        aria-labelledby="kie-datalist-item-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+        isDisabled={true}
+      >
+        <div
+          className="pf-c-data-list__item-control"
+        >
+          <div
+            className="pf-c-data-list__check"
+          >
+            <input
+              aria-invalid={false}
+              aria-labelledby="kie-datalist-item-8035b580-6ae4-4aa8-9ec0-e18e19809e0b1"
+              checked={null}
+              disabled={true}
+              onChange={[Function]}
+              type="checkbox"
+            />
+          </div>
+        </div>
+      </DataListCheck>
+      <Portal
+        containerInfo={
+          <div>
+            <div
+              class=""
+              id=""
+              role="tooltip"
+            >
+              <div
+                class="pf-c-tooltip__content"
+              >
+                Management add-on capability not enabled & missing the kogito.service.url property. Contact your administrator to set up.
+              </div>
+            </div>
+          </div>
+        }
+      >
+        <div
+          className=""
+          id=""
+          role="tooltip"
+        >
+          <TooltipContent
+            isLeftAligned={false}
+          >
+            <div
+              className="pf-c-tooltip__content"
+            >
+              Management add-on capability not enabled & missing the kogito.service.url property. Contact your administrator to set up.
+            </div>
+          </TooltipContent>
+        </div>
+      </Portal>
+    </PopoverBase>
+  </Tooltip>
+</DisablePopup>
+`;

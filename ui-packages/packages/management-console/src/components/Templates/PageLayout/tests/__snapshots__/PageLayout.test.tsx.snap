@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLayout tests snapshot testing 1`] = `
+<PageLayout
+  history={
+    Array [
+      "/ProcessInstances",
+    ]
+  }
+  location={
+    Object {
+      "pathname": "/ProcessInstances",
+    }
+  }
+  ouiaContext={
+    Object {
+      "isOuia": false,
+      "ouiaId": null,
+    }
+  }
+>
+  <KogitoPageLayout
+    BrandAltText="Management Console Logo"
+    BrandClick={[Function]}
+    BrandSrc="managementConsoleLogo.svg"
+    PageNav={
+      <Unknown
+        aria-label="Nav"
+        theme="dark"
+      >
+        <NavList
+          ariaLeftScroll="Scroll left"
+          ariaRightScroll="Scroll right"
+          className=""
+          variant="default"
+        >
+          <NavItem
+            isActive={true}
+          >
+            <Link
+              to="/ProcessInstances"
+            >
+              Process Instances
+            </Link>
+          </NavItem>
+          <NavItem
+            isActive={false}
+          >
+            <Link
+              to="/DomainExplorer"
+            >
+              Domain Explorer
+            </Link>
+          </NavItem>
+        </NavList>
+      </Unknown>
+    }
+  >
+    <MockedComponent />
+  </KogitoPageLayout>
+</PageLayout>
+`;

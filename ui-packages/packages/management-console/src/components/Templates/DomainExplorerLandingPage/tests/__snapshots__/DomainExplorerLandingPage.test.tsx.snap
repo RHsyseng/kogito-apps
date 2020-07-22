@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Domain Explorer Landing Page Component Snapshot test with default props 1`] = `
+<DomainExplorerLandingPage
+  ouiaContext={
+    Object {
+      "isOuia": false,
+      "ouiaId": null,
+    }
+  }
+>
+  <PageSection
+    variant="light"
+  >
+    <section
+      className="pf-c-page__main-section pf-m-light"
+    >
+      <PageTitle
+        title="Domain Explorer"
+      >
+        <Title
+          headingLevel="h1"
+          size="4xl"
+        >
+          <h1
+            className="pf-c-title pf-m-4xl"
+          >
+            Domain Explorer
+          </h1>
+        </Title>
+      </PageTitle>
+      <Breadcrumb>
+        <MockedBreadcrumb />
+      </Breadcrumb>
+    </section>
+  </PageSection>
+  <PageSection>
+    <section
+      className="pf-c-page__main-section"
+    >
+      <Card>
+        <article
+          className="pf-c-card"
+        >
+          <CardBody>
+            <div
+              className="pf-c-card__body"
+            >
+              <MockedDomainExplorerListDomains>
+                 
+              </MockedDomainExplorerListDomains>
+            </div>
+          </CardBody>
+        </article>
+      </Card>
+    </section>
+  </PageSection>
+</DomainExplorerLandingPage>
+`;

@@ -36,6 +36,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.GraphQLInputObjectType;
+import graphql.schema.GraphQLNamedInputType;
+import graphql.schema.GraphQLNamedType;
 import graphql.schema.GraphQLScalarType;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
@@ -47,8 +49,7 @@ import io.vertx.axle.core.eventbus.EventBus;
 import io.vertx.axle.core.eventbus.Message;
 import io.vertx.axle.core.eventbus.MessageConsumer;
 import io.vertx.axle.core.eventbus.MessageProducer;
-import org.kie.kogito.index.cache.Cache;
-import org.kie.kogito.index.cache.CacheService;
+import org.kie.kogito.index.DataIndexStorageService;
 import org.kie.kogito.index.graphql.query.GraphQLQueryOrderByParser;
 import org.kie.kogito.index.graphql.query.GraphQLQueryParserRegistry;
 import org.kie.kogito.index.json.DataIndexParsingException;
@@ -56,7 +57,8 @@ import org.kie.kogito.index.model.Job;
 import org.kie.kogito.index.model.ProcessInstance;
 import org.kie.kogito.index.model.ProcessInstanceState;
 import org.kie.kogito.index.model.UserTaskInstance;
-import org.kie.kogito.index.query.Query;
+import org.kie.kogito.persistence.api.Storage;
+import org.kie.kogito.persistence.api.query.Query;
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,7 +66,7 @@ import org.slf4j.LoggerFactory;
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 import static org.kie.kogito.index.json.JsonUtils.getObjectMapper;
-import static org.kie.kogito.index.query.QueryFilterFactory.equalTo;
+import static org.kie.kogito.persistence.api.query.QueryFilterFactory.equalTo;
 
 @ApplicationScoped
 public class GraphQLSchemaManager {
@@ -78,7 +80,7 @@ public class GraphQLSchemaManager {
     private static final String JOB_ADDED = "JobAdded";
 
     @Inject
-    CacheService cacheService;
+    DataIndexStorageService cacheService;
 
     @Inject
     GraphQLScalarType qlDateTimeScalarType;
@@ -208,8 +210,8 @@ public class GraphQLSchemaManager {
         return executeAdvancedQueryForCache(cacheService.getJobsCache(), env);
     }
 
-    private <T> List<T> executeAdvancedQueryForCache(Cache<String, T> cache, DataFetchingEnvironment env) {
-        String inputTypeName = env.getFieldDefinition().getArgument("where").getType().getName();
+    private <T> List<T> executeAdvancedQueryForCache(Storage<String, T> cache, DataFetchingEnvironment env) {
+        String inputTypeName = ((GraphQLNamedType) env.getFieldDefinition().getArgument("where").getType()).getName();
 
         Query<T> query = cache.query();
 
@@ -261,11 +263,11 @@ public class GraphQLSchemaManager {
         return ojectCreatedPublisher(JOB_ADDED, cacheService.getJobsCache());
     }
 
-    private DataFetcher<Publisher<ObjectNode>> ojectCreatedPublisher(String address, Cache cache) {
+    private DataFetcher<Publisher<ObjectNode>> ojectCreatedPublisher(String address, Storage cache) {
         return env -> createPublisher(address, producer -> cache.addObjectCreatedListener(ut -> producer.write(getObjectMapper().convertValue(ut, ObjectNode.class))));
     }
 
-    private DataFetcher<Publisher<ObjectNode>> objectUpdatedPublisher(String address, Cache cache) {
+    private DataFetcher<Publisher<ObjectNode>> objectUpdatedPublisher(String address, Storage cache) {
         return env -> createPublisher(address, producer -> cache.addObjectUpdatedListener(ut -> producer.write(getObjectMapper().convertValue(ut, ObjectNode.class))));
     }
 

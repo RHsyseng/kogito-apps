@@ -28,15 +28,16 @@ import graphql.schema.GraphQLArgument;
 import graphql.schema.GraphQLCodeRegistry;
 import graphql.schema.GraphQLInputObjectType;
 import graphql.schema.GraphQLList;
+import graphql.schema.GraphQLNamedType;
 import graphql.schema.GraphQLObjectType;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.GraphQLType;
 import graphql.schema.GraphQLTypeReference;
-import org.kie.kogito.index.domain.DomainDescriptor;
-import org.kie.kogito.index.event.DomainModelRegisteredEvent;
 import org.kie.kogito.index.graphql.query.GraphQLInputObjectTypeMapper;
 import org.kie.kogito.index.graphql.query.GraphQLOrderByTypeMapper;
 import org.kie.kogito.index.graphql.query.GraphQLQueryParserRegistry;
+import org.kie.kogito.persistence.api.proto.DomainDescriptor;
+import org.kie.kogito.persistence.api.proto.DomainModelRegisteredEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,7 +73,7 @@ public class GraphQLProtoSchemaMapper {
             GraphQLInputObjectType orderByType = new GraphQLOrderByTypeMapper(schema, additionalTypes).apply(rootType);
             additionalTypes.put(orderByType.getName(), orderByType);
             Set<GraphQLType> newTypes = additionalTypes.entrySet().stream().map(entry -> entry.getValue()).collect(toSet());
-            newTypes.addAll(schema.getAdditionalTypes().stream().filter(type -> additionalTypes.containsKey(type.getName()) == false).collect(toSet()));
+            newTypes.addAll(schema.getAdditionalTypes().stream().filter(type -> additionalTypes.containsKey(((GraphQLNamedType)type).getName()) == false).collect(toSet()));
             LOGGER.debug("New GraphQL types: {}", newTypes);
             builder.additionalTypes(newTypes);
 

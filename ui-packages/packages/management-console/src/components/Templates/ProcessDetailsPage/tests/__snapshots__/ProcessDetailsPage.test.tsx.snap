@@ -1,0 +1,2238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Process Details Page component tests snapshot testing for error occurance 1`] = `
+<ProcessDetailsPage
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/",
+      "search": "",
+      "state": undefined,
+    }
+  }
+  match={
+    Object {
+      "isExact": false,
+      "params": Object {
+        "instanceID": "8035b580-6ae4-4aa8-9ec0-e18e19809e0bc",
+      },
+      "path": "",
+      "url": "",
+    }
+  }
+  ouiaContext={
+    Object {
+      "isOuia": false,
+      "ouiaId": null,
+    }
+  }
+>
+  <ServerErrors
+    error={
+      [Error: Network error: No more mocked responses for the query: query getProcessInstanceById($id: String) {
+  ProcessInstances(where: {id: {equal: $id}}) {
+    id
+    processId
+    processName
+    businessKey
+    parentProcessInstanceId
+    parentProcessInstance {
+      id
+      processName
+      businessKey
+    }
+    roles
+    variables
+    state
+    start
+    lastUpdate
+    end
+    addons
+    endpoint
+    addons
+    serviceUrl
+    error {
+      nodeDefinitionId
+      message
+    }
+    childProcessInstances {
+      id
+      processName
+      businessKey
+    }
+    nodes {
+      id
+      nodeId
+      name
+      enter
+      exit
+      type
+      definitionId
+    }
+  }
+}
+, variables: {"id":"8035b580-6ae4-4aa8-9ec0-e18e19809e0bc"}]
+    }
+  >
+    <MockedComponent />
+  </ServerErrors>
+</ProcessDetailsPage>
+`;
+
+exports[`Process Details Page component tests snapshot testing in Active state 1`] = `
+<ProcessDetailsPage
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/",
+      "search": "",
+      "state": Object {
+        "filters": Object {
+          "businessKey": Array [
+            "tra",
+          ],
+          "status": Array [
+            "ACTIVE",
+          ],
+        },
+      },
+    }
+  }
+  match={
+    Object {
+      "isExact": false,
+      "params": Object {
+        "instanceID": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+      },
+      "path": "",
+      "url": "",
+    }
+  }
+  ouiaContext={
+    Object {
+      "isOuia": false,
+      "ouiaId": null,
+    }
+  }
+>
+  <PageSection
+    variant="light"
+  >
+    <section
+      className="pf-c-page__main-section pf-m-light"
+    >
+      <MockedProcessListModal
+        checkedArray={
+          Array [
+            "ACTIVE",
+          ]
+        }
+        handleModalToggle={[Function]}
+        isModalOpen={false}
+        modalContent=""
+      />
+      <PageTitle
+        title="Process Details"
+      >
+        <Title
+          headingLevel="h1"
+          size="4xl"
+        >
+          <h1
+            className="pf-c-title pf-m-4xl"
+          >
+            Process Details
+          </h1>
+        </Title>
+      </PageTitle>
+      <Grid
+        gutter="md"
+        lg={6}
+        span={12}
+        xl={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+        >
+          <GridItem
+            span={12}
+          >
+            <div
+              className="pf-l-grid__item pf-m-12-col"
+            >
+              <Component>
+                <ComponentWithOuia
+                  component={[Function]}
+                  componentProps={
+                    Object {
+                      "children": Array [
+                        <BreadcrumbItem>
+                          <Link
+                            to="/"
+                          >
+                            Home
+                          </Link>
+                        </BreadcrumbItem>,
+                        Array [
+                          <BreadcrumbItem>
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              Process Instances
+                            </Link>
+                          </BreadcrumbItem>,
+                          <BreadcrumbItem>
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                            </Link>
+                          </BreadcrumbItem>,
+                        ],
+                        <BreadcrumbItem
+                          isActive={true}
+                        >
+                          travels
+                        </BreadcrumbItem>,
+                      ],
+                    }
+                  }
+                  consumerContext={
+                    Object {
+                      "isOuia": false,
+                      "ouiaId": null,
+                    }
+                  }
+                >
+                  <Breadcrumb
+                    ouiaContext={
+                      Object {
+                        "isOuia": false,
+                        "ouiaId": null,
+                      }
+                    }
+                  >
+                    <nav
+                      aria-label="Breadcrumb"
+                      className="pf-c-breadcrumb"
+                    >
+                      <ol
+                        className="pf-c-breadcrumb__list"
+                      >
+                        <BreadcrumbItem>
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to="/"
+                            >
+                              <LinkAnchor
+                                href="/"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Home
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          key="0"
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                href="/ProcessInstances"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/ProcessInstances"
+                                  onClick={[Function]}
+                                >
+                                  Process Instances
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          key="1"
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                  onClick={[Function]}
+                                >
+                                  8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          isActive={true}
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            travels
+                          </li>
+                        </BreadcrumbItem>
+                      </ol>
+                    </nav>
+                  </Breadcrumb>
+                </ComponentWithOuia>
+              </Component>
+            </div>
+          </GridItem>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+  <PageSection>
+    <section
+      className="pf-c-page__main-section"
+    >
+      <Grid
+        gutter="md"
+        lg={6}
+        span={12}
+        xl={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+        >
+          <GridItem
+            span={12}
+          >
+            <div
+              className="pf-l-grid__item pf-m-12-col"
+            >
+              <Split
+                className="pf-u-align-items-center"
+                component="div"
+                gutter="md"
+              >
+                <div
+                  className="pf-l-split pf-m-gutter pf-u-align-items-center"
+                >
+                  <SplitItem
+                    isFilled={true}
+                  >
+                    <div
+                      className="pf-l-split__item pf-m-fill"
+                    >
+                      <Title
+                        className="kogito-management-console--details__title"
+                        headingLevel="h2"
+                        size="4xl"
+                      >
+                        <h2
+                          className="pf-c-title pf-m-4xl kogito-management-console--details__title"
+                        >
+                          <ProcessDescriptor
+                            processInstanceData={
+                              Object {
+                                "addons": Array [
+                                  "process-management",
+                                ],
+                                "businessKey": null,
+                                "childProcessInstances": Array [],
+                                "end": null,
+                                "endpoint": "http://localhost:4000",
+                                "error": Object {
+                                  "message": "Something went wrong",
+                                  "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                                },
+                                "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                "lastUpdate": "2019-10-22T03:40:44.089Z",
+                                "nodes": Array [
+                                  Object {
+                                    "definitionId": "StartEvent_1",
+                                    "enter": "2019-10-22T04:43:01.135Z",
+                                    "exit": "2019-10-22T04:43:01.135Z",
+                                    "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                    "name": "StartProcess",
+                                    "nodeId": "9",
+                                    "type": "StartNode",
+                                  },
+                                ],
+                                "parentProcessInstance": null,
+                                "parentProcessInstanceId": null,
+                                "processId": "Travels",
+                                "processName": "travels",
+                                "roles": Array [],
+                                "serviceUrl": "http://localhost:4000",
+                                "start": "2019-10-22T03:40:44.089Z",
+                                "state": "ACTIVE",
+                                "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                              }
+                            }
+                          >
+                            <MockedComponent />
+                          </ProcessDescriptor>
+                        </h2>
+                      </Title>
+                    </div>
+                  </SplitItem>
+                  <SplitItem>
+                    <div
+                      className="pf-l-split__item"
+                    >
+                      <OverflowMenu
+                        breakpoint="lg"
+                      >
+                        <div
+                          className="pf-c-overflow-menu"
+                        >
+                          <OverflowMenuContent
+                            isPersistent={true}
+                          >
+                            <div
+                              className="pf-c-overflow-menu__content"
+                            >
+                              <OverflowMenuGroup
+                                groupType="button"
+                                isPersistent={true}
+                              >
+                                <div
+                                  className="pf-c-overflow-menu__group pf-m-button-group"
+                                >
+                                  <Component
+                                    id="abort-button"
+                                    onClick={[Function]}
+                                    variant="secondary"
+                                  >
+                                    <ComponentWithOuia
+                                      component={[Function]}
+                                      componentProps={
+                                        Object {
+                                          "children": "Abort",
+                                          "id": "abort-button",
+                                          "onClick": [Function],
+                                          "variant": "secondary",
+                                        }
+                                      }
+                                      consumerContext={
+                                        Object {
+                                          "isOuia": false,
+                                          "ouiaId": null,
+                                        }
+                                      }
+                                    >
+                                      <Button
+                                        id="abort-button"
+                                        onClick={[Function]}
+                                        ouiaContext={
+                                          Object {
+                                            "isOuia": false,
+                                            "ouiaId": null,
+                                          }
+                                        }
+                                        variant="secondary"
+                                      >
+                                        <button
+                                          aria-disabled={null}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-secondary"
+                                          disabled={false}
+                                          id="abort-button"
+                                          onClick={[Function]}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Abort
+                                        </button>
+                                      </Button>
+                                    </ComponentWithOuia>
+                                  </Component>
+                                </div>
+                              </OverflowMenuGroup>
+                            </div>
+                          </OverflowMenuContent>
+                        </div>
+                      </OverflowMenu>
+                    </div>
+                  </SplitItem>
+                </div>
+              </Split>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetails
+                data={
+                  Object {
+                    "ProcessInstances": Array [
+                      Object {
+                        "addons": Array [
+                          "process-management",
+                        ],
+                        "businessKey": null,
+                        "childProcessInstances": Array [],
+                        "end": null,
+                        "endpoint": "http://localhost:4000",
+                        "error": Object {
+                          "message": "Something went wrong",
+                          "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                        },
+                        "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        "lastUpdate": "2019-10-22T03:40:44.089Z",
+                        "nodes": Array [
+                          Object {
+                            "definitionId": "StartEvent_1",
+                            "enter": "2019-10-22T04:43:01.135Z",
+                            "exit": "2019-10-22T04:43:01.135Z",
+                            "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                            "name": "StartProcess",
+                            "nodeId": "9",
+                            "type": "StartNode",
+                          },
+                        ],
+                        "parentProcessInstance": null,
+                        "parentProcessInstanceId": null,
+                        "processId": "Travels",
+                        "processName": "travels",
+                        "roles": Array [],
+                        "serviceUrl": "http://localhost:4000",
+                        "start": "2019-10-22T03:40:44.089Z",
+                        "state": "ACTIVE",
+                        "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                      },
+                    ],
+                  }
+                }
+                from={
+                  Object {
+                    "prev": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetailsProcessVariables
+                data={
+                  Object {
+                    "ProcessInstances": Array [
+                      Object {
+                        "addons": Array [
+                          "process-management",
+                        ],
+                        "businessKey": null,
+                        "childProcessInstances": Array [],
+                        "end": null,
+                        "endpoint": "http://localhost:4000",
+                        "error": Object {
+                          "message": "Something went wrong",
+                          "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                        },
+                        "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        "lastUpdate": "2019-10-22T03:40:44.089Z",
+                        "nodes": Array [
+                          Object {
+                            "definitionId": "StartEvent_1",
+                            "enter": "2019-10-22T04:43:01.135Z",
+                            "exit": "2019-10-22T04:43:01.135Z",
+                            "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                            "name": "StartProcess",
+                            "nodeId": "9",
+                            "type": "StartNode",
+                          },
+                        ],
+                        "parentProcessInstance": null,
+                        "parentProcessInstanceId": null,
+                        "processId": "Travels",
+                        "processName": "travels",
+                        "roles": Array [],
+                        "serviceUrl": "http://localhost:4000",
+                        "start": "2019-10-22T03:40:44.089Z",
+                        "state": "ACTIVE",
+                        "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                      },
+                    ],
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetailsTimeline
+                data={
+                  Object {
+                    "addons": Array [
+                      "process-management",
+                    ],
+                    "businessKey": null,
+                    "childProcessInstances": Array [],
+                    "end": null,
+                    "endpoint": "http://localhost:4000",
+                    "error": Object {
+                      "message": "Something went wrong",
+                      "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                    },
+                    "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                    "lastUpdate": "2019-10-22T03:40:44.089Z",
+                    "nodes": Array [
+                      Object {
+                        "definitionId": "StartEvent_1",
+                        "enter": "2019-10-22T04:43:01.135Z",
+                        "exit": "2019-10-22T04:43:01.135Z",
+                        "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                        "name": "StartProcess",
+                        "nodeId": "9",
+                        "type": "StartNode",
+                      },
+                    ],
+                    "parentProcessInstance": null,
+                    "parentProcessInstanceId": null,
+                    "processId": "Travels",
+                    "processName": "travels",
+                    "roles": Array [],
+                    "serviceUrl": "http://localhost:4000",
+                    "start": "2019-10-22T03:40:44.089Z",
+                    "state": "ACTIVE",
+                    "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+</ProcessDetailsPage>
+`;
+
+exports[`Process Details Page component tests snapshot testing in Error state 1`] = `
+<ProcessDetailsPage
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/",
+      "search": "",
+      "state": Object {
+        "filters": Object {
+          "businessKey": Array [
+            "tra",
+          ],
+          "status": Array [
+            "ACTIVE",
+          ],
+        },
+      },
+    }
+  }
+  match={
+    Object {
+      "isExact": false,
+      "params": Object {
+        "instanceID": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+      },
+      "path": "",
+      "url": "",
+    }
+  }
+  ouiaContext={
+    Object {
+      "isOuia": false,
+      "ouiaId": null,
+    }
+  }
+>
+  <PageSection
+    variant="light"
+  >
+    <section
+      className="pf-c-page__main-section pf-m-light"
+    >
+      <MockedProcessListModal
+        checkedArray={
+          Array [
+            "ERROR",
+          ]
+        }
+        handleModalToggle={[Function]}
+        isModalOpen={false}
+        modalContent=""
+      />
+      <PageTitle
+        title="Process Details"
+      >
+        <Title
+          headingLevel="h1"
+          size="4xl"
+        >
+          <h1
+            className="pf-c-title pf-m-4xl"
+          >
+            Process Details
+          </h1>
+        </Title>
+      </PageTitle>
+      <Grid
+        gutter="md"
+        lg={6}
+        span={12}
+        xl={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+        >
+          <GridItem
+            span={12}
+          >
+            <div
+              className="pf-l-grid__item pf-m-12-col"
+            >
+              <Component>
+                <ComponentWithOuia
+                  component={[Function]}
+                  componentProps={
+                    Object {
+                      "children": Array [
+                        <BreadcrumbItem>
+                          <Link
+                            to="/"
+                          >
+                            Home
+                          </Link>
+                        </BreadcrumbItem>,
+                        Array [
+                          <BreadcrumbItem>
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              Process Instances
+                            </Link>
+                          </BreadcrumbItem>,
+                          <BreadcrumbItem>
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                            </Link>
+                          </BreadcrumbItem>,
+                        ],
+                        <BreadcrumbItem
+                          isActive={true}
+                        >
+                          travels
+                        </BreadcrumbItem>,
+                      ],
+                    }
+                  }
+                  consumerContext={
+                    Object {
+                      "isOuia": false,
+                      "ouiaId": null,
+                    }
+                  }
+                >
+                  <Breadcrumb
+                    ouiaContext={
+                      Object {
+                        "isOuia": false,
+                        "ouiaId": null,
+                      }
+                    }
+                  >
+                    <nav
+                      aria-label="Breadcrumb"
+                      className="pf-c-breadcrumb"
+                    >
+                      <ol
+                        className="pf-c-breadcrumb__list"
+                      >
+                        <BreadcrumbItem>
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to="/"
+                            >
+                              <LinkAnchor
+                                href="/"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Home
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          key="0"
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                href="/ProcessInstances"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/ProcessInstances"
+                                  onClick={[Function]}
+                                >
+                                  Process Instances
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          key="1"
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                  onClick={[Function]}
+                                >
+                                  8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          isActive={true}
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            travels
+                          </li>
+                        </BreadcrumbItem>
+                      </ol>
+                    </nav>
+                  </Breadcrumb>
+                </ComponentWithOuia>
+              </Component>
+            </div>
+          </GridItem>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+  <PageSection>
+    <section
+      className="pf-c-page__main-section"
+    >
+      <Grid
+        gutter="md"
+        lg={6}
+        span={12}
+        xl={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+        >
+          <GridItem
+            span={12}
+          >
+            <div
+              className="pf-l-grid__item pf-m-12-col"
+            >
+              <Split
+                className="pf-u-align-items-center"
+                component="div"
+                gutter="md"
+              >
+                <div
+                  className="pf-l-split pf-m-gutter pf-u-align-items-center"
+                >
+                  <SplitItem
+                    isFilled={true}
+                  >
+                    <div
+                      className="pf-l-split__item pf-m-fill"
+                    >
+                      <Title
+                        className="kogito-management-console--details__title"
+                        headingLevel="h2"
+                        size="4xl"
+                      >
+                        <h2
+                          className="pf-c-title pf-m-4xl kogito-management-console--details__title"
+                        >
+                          <ProcessDescriptor
+                            processInstanceData={
+                              Object {
+                                "addons": Array [],
+                                "businessKey": null,
+                                "childProcessInstances": Array [],
+                                "end": null,
+                                "endpoint": "http://localhost:4000",
+                                "error": Object {
+                                  "message": "Something went wrong",
+                                  "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                                },
+                                "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                "lastUpdate": "2019-10-22T03:40:44.089Z",
+                                "nodes": Array [
+                                  Object {
+                                    "definitionId": "StartEvent_1",
+                                    "enter": "2019-10-22T04:43:01.135Z",
+                                    "exit": "2019-10-22T04:43:01.135Z",
+                                    "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                    "name": "StartProcess",
+                                    "nodeId": "9",
+                                    "type": "StartNode",
+                                  },
+                                ],
+                                "parentProcessInstance": null,
+                                "parentProcessInstanceId": null,
+                                "processId": "Travels",
+                                "processName": "travels",
+                                "roles": Array [],
+                                "serviceUrl": null,
+                                "start": "2019-10-22T03:40:44.089Z",
+                                "state": "ERROR",
+                                "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                              }
+                            }
+                          >
+                            <MockedComponent />
+                          </ProcessDescriptor>
+                        </h2>
+                      </Title>
+                    </div>
+                  </SplitItem>
+                  <SplitItem>
+                    <div
+                      className="pf-l-split__item"
+                    >
+                      <OverflowMenu
+                        breakpoint="lg"
+                      >
+                        <div
+                          className="pf-c-overflow-menu"
+                        >
+                          <OverflowMenuContent
+                            isPersistent={true}
+                          >
+                            <div
+                              className="pf-c-overflow-menu__content"
+                            >
+                              <OverflowMenuGroup
+                                groupType="button"
+                                isPersistent={true}
+                              >
+                                <div
+                                  className="pf-c-overflow-menu__group pf-m-button-group"
+                                >
+                                  <Component
+                                    isDisabled={true}
+                                    variant="secondary"
+                                  >
+                                    <ComponentWithOuia
+                                      component={[Function]}
+                                      componentProps={
+                                        Object {
+                                          "children": "Abort",
+                                          "isDisabled": true,
+                                          "variant": "secondary",
+                                        }
+                                      }
+                                      consumerContext={
+                                        Object {
+                                          "isOuia": false,
+                                          "ouiaId": null,
+                                        }
+                                      }
+                                    >
+                                      <Button
+                                        isDisabled={true}
+                                        ouiaContext={
+                                          Object {
+                                            "isOuia": false,
+                                            "ouiaId": null,
+                                          }
+                                        }
+                                        variant="secondary"
+                                      >
+                                        <button
+                                          aria-disabled={null}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-secondary"
+                                          disabled={true}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Abort
+                                        </button>
+                                      </Button>
+                                    </ComponentWithOuia>
+                                  </Component>
+                                </div>
+                              </OverflowMenuGroup>
+                            </div>
+                          </OverflowMenuContent>
+                        </div>
+                      </OverflowMenu>
+                    </div>
+                  </SplitItem>
+                </div>
+              </Split>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetails
+                data={
+                  Object {
+                    "ProcessInstances": Array [
+                      Object {
+                        "addons": Array [],
+                        "businessKey": null,
+                        "childProcessInstances": Array [],
+                        "end": null,
+                        "endpoint": "http://localhost:4000",
+                        "error": Object {
+                          "message": "Something went wrong",
+                          "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                        },
+                        "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        "lastUpdate": "2019-10-22T03:40:44.089Z",
+                        "nodes": Array [
+                          Object {
+                            "definitionId": "StartEvent_1",
+                            "enter": "2019-10-22T04:43:01.135Z",
+                            "exit": "2019-10-22T04:43:01.135Z",
+                            "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                            "name": "StartProcess",
+                            "nodeId": "9",
+                            "type": "StartNode",
+                          },
+                        ],
+                        "parentProcessInstance": null,
+                        "parentProcessInstanceId": null,
+                        "processId": "Travels",
+                        "processName": "travels",
+                        "roles": Array [],
+                        "serviceUrl": null,
+                        "start": "2019-10-22T03:40:44.089Z",
+                        "state": "ERROR",
+                        "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                      },
+                    ],
+                  }
+                }
+                from={
+                  Object {
+                    "prev": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetailsProcessVariables
+                data={
+                  Object {
+                    "ProcessInstances": Array [
+                      Object {
+                        "addons": Array [],
+                        "businessKey": null,
+                        "childProcessInstances": Array [],
+                        "end": null,
+                        "endpoint": "http://localhost:4000",
+                        "error": Object {
+                          "message": "Something went wrong",
+                          "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                        },
+                        "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        "lastUpdate": "2019-10-22T03:40:44.089Z",
+                        "nodes": Array [
+                          Object {
+                            "definitionId": "StartEvent_1",
+                            "enter": "2019-10-22T04:43:01.135Z",
+                            "exit": "2019-10-22T04:43:01.135Z",
+                            "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                            "name": "StartProcess",
+                            "nodeId": "9",
+                            "type": "StartNode",
+                          },
+                        ],
+                        "parentProcessInstance": null,
+                        "parentProcessInstanceId": null,
+                        "processId": "Travels",
+                        "processName": "travels",
+                        "roles": Array [],
+                        "serviceUrl": null,
+                        "start": "2019-10-22T03:40:44.089Z",
+                        "state": "ERROR",
+                        "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                      },
+                    ],
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetailsTimeline
+                data={
+                  Object {
+                    "addons": Array [],
+                    "businessKey": null,
+                    "childProcessInstances": Array [],
+                    "end": null,
+                    "endpoint": "http://localhost:4000",
+                    "error": Object {
+                      "message": "Something went wrong",
+                      "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                    },
+                    "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                    "lastUpdate": "2019-10-22T03:40:44.089Z",
+                    "nodes": Array [
+                      Object {
+                        "definitionId": "StartEvent_1",
+                        "enter": "2019-10-22T04:43:01.135Z",
+                        "exit": "2019-10-22T04:43:01.135Z",
+                        "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                        "name": "StartProcess",
+                        "nodeId": "9",
+                        "type": "StartNode",
+                      },
+                    ],
+                    "parentProcessInstance": null,
+                    "parentProcessInstanceId": null,
+                    "processId": "Travels",
+                    "processName": "travels",
+                    "roles": Array [],
+                    "serviceUrl": null,
+                    "start": "2019-10-22T03:40:44.089Z",
+                    "state": "ERROR",
+                    "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+</ProcessDetailsPage>
+`;
+
+exports[`Process Details Page component tests snapshot testing in Suspended state 1`] = `
+<ProcessDetailsPage
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/",
+      "search": "",
+      "state": Object {
+        "filters": Object {
+          "businessKey": Array [
+            "tra",
+          ],
+          "status": Array [
+            "ACTIVE",
+          ],
+        },
+      },
+    }
+  }
+  match={
+    Object {
+      "isExact": false,
+      "params": Object {
+        "instanceID": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+      },
+      "path": "",
+      "url": "",
+    }
+  }
+  ouiaContext={
+    Object {
+      "isOuia": false,
+      "ouiaId": null,
+    }
+  }
+>
+  <PageSection
+    variant="light"
+  >
+    <section
+      className="pf-c-page__main-section pf-m-light"
+    >
+      <MockedProcessListModal
+        checkedArray={
+          Array [
+            "SUSPENDED",
+          ]
+        }
+        handleModalToggle={[Function]}
+        isModalOpen={false}
+        modalContent=""
+      />
+      <PageTitle
+        title="Process Details"
+      >
+        <Title
+          headingLevel="h1"
+          size="4xl"
+        >
+          <h1
+            className="pf-c-title pf-m-4xl"
+          >
+            Process Details
+          </h1>
+        </Title>
+      </PageTitle>
+      <Grid
+        gutter="md"
+        lg={6}
+        span={12}
+        xl={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+        >
+          <GridItem
+            span={12}
+          >
+            <div
+              className="pf-l-grid__item pf-m-12-col"
+            >
+              <Component>
+                <ComponentWithOuia
+                  component={[Function]}
+                  componentProps={
+                    Object {
+                      "children": Array [
+                        <BreadcrumbItem>
+                          <Link
+                            to="/"
+                          >
+                            Home
+                          </Link>
+                        </BreadcrumbItem>,
+                        Array [
+                          <BreadcrumbItem>
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              Process Instances
+                            </Link>
+                          </BreadcrumbItem>,
+                          <BreadcrumbItem>
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                            </Link>
+                          </BreadcrumbItem>,
+                        ],
+                        <BreadcrumbItem
+                          isActive={true}
+                        >
+                          travels
+                        </BreadcrumbItem>,
+                      ],
+                    }
+                  }
+                  consumerContext={
+                    Object {
+                      "isOuia": false,
+                      "ouiaId": null,
+                    }
+                  }
+                >
+                  <Breadcrumb
+                    ouiaContext={
+                      Object {
+                        "isOuia": false,
+                        "ouiaId": null,
+                      }
+                    }
+                  >
+                    <nav
+                      aria-label="Breadcrumb"
+                      className="pf-c-breadcrumb"
+                    >
+                      <ol
+                        className="pf-c-breadcrumb__list"
+                      >
+                        <BreadcrumbItem>
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to="/"
+                            >
+                              <LinkAnchor
+                                href="/"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Home
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          key="0"
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                href="/ProcessInstances"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/ProcessInstances"
+                                  onClick={[Function]}
+                                >
+                                  Process Instances
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          key="1"
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            <Link
+                              to={
+                                Object {
+                                  "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "state": Object {
+                                    "filters": Object {
+                                      "businessKey": Array [
+                                        "tra",
+                                      ],
+                                      "status": Array [
+                                        "ACTIVE",
+                                      ],
+                                    },
+                                  },
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                  onClick={[Function]}
+                                >
+                                  8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                            <span
+                              className="pf-c-breadcrumb__item-divider"
+                            >
+                              <AngleRightIcon
+                                color="currentColor"
+                                noVerticalAlign={false}
+                                size="sm"
+                                title={null}
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  aria-labelledby={null}
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style={
+                                    Object {
+                                      "verticalAlign": "-0.125em",
+                                    }
+                                  }
+                                  viewBox="0 0 256 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </AngleRightIcon>
+                            </span>
+                          </li>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem
+                          isActive={true}
+                        >
+                          <li
+                            className="pf-c-breadcrumb__item"
+                          >
+                            travels
+                          </li>
+                        </BreadcrumbItem>
+                      </ol>
+                    </nav>
+                  </Breadcrumb>
+                </ComponentWithOuia>
+              </Component>
+            </div>
+          </GridItem>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+  <PageSection>
+    <section
+      className="pf-c-page__main-section"
+    >
+      <Grid
+        gutter="md"
+        lg={6}
+        span={12}
+        xl={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+        >
+          <GridItem
+            span={12}
+          >
+            <div
+              className="pf-l-grid__item pf-m-12-col"
+            >
+              <Split
+                className="pf-u-align-items-center"
+                component="div"
+                gutter="md"
+              >
+                <div
+                  className="pf-l-split pf-m-gutter pf-u-align-items-center"
+                >
+                  <SplitItem
+                    isFilled={true}
+                  >
+                    <div
+                      className="pf-l-split__item pf-m-fill"
+                    >
+                      <Title
+                        className="kogito-management-console--details__title"
+                        headingLevel="h2"
+                        size="4xl"
+                      >
+                        <h2
+                          className="pf-c-title pf-m-4xl kogito-management-console--details__title"
+                        >
+                          <ProcessDescriptor
+                            processInstanceData={
+                              Object {
+                                "addons": Array [
+                                  "process-management",
+                                ],
+                                "businessKey": null,
+                                "childProcessInstances": Array [],
+                                "end": null,
+                                "endpoint": "http://localhost:4000",
+                                "error": Object {
+                                  "message": "Something went wrong",
+                                  "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                                },
+                                "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                "lastUpdate": "2019-10-22T03:40:44.089Z",
+                                "nodes": Array [
+                                  Object {
+                                    "definitionId": "StartEvent_1",
+                                    "enter": "2019-10-22T04:43:01.135Z",
+                                    "exit": "2019-10-22T04:43:01.135Z",
+                                    "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                    "name": "StartProcess",
+                                    "nodeId": "9",
+                                    "type": "StartNode",
+                                  },
+                                ],
+                                "parentProcessInstance": null,
+                                "parentProcessInstanceId": null,
+                                "processId": "Travels",
+                                "processName": "travels",
+                                "roles": Array [],
+                                "serviceUrl": "http://localhost:4000",
+                                "start": "2019-10-22T03:40:44.089Z",
+                                "state": "SUSPENDED",
+                                "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                              }
+                            }
+                          >
+                            <MockedComponent />
+                          </ProcessDescriptor>
+                        </h2>
+                      </Title>
+                    </div>
+                  </SplitItem>
+                  <SplitItem>
+                    <div
+                      className="pf-l-split__item"
+                    >
+                      <OverflowMenu
+                        breakpoint="lg"
+                      >
+                        <div
+                          className="pf-c-overflow-menu"
+                        >
+                          <OverflowMenuContent
+                            isPersistent={true}
+                          >
+                            <div
+                              className="pf-c-overflow-menu__content"
+                            >
+                              <OverflowMenuGroup
+                                groupType="button"
+                                isPersistent={true}
+                              >
+                                <div
+                                  className="pf-c-overflow-menu__group pf-m-button-group"
+                                >
+                                  <Component
+                                    id="abort-button"
+                                    onClick={[Function]}
+                                    variant="secondary"
+                                  >
+                                    <ComponentWithOuia
+                                      component={[Function]}
+                                      componentProps={
+                                        Object {
+                                          "children": "Abort",
+                                          "id": "abort-button",
+                                          "onClick": [Function],
+                                          "variant": "secondary",
+                                        }
+                                      }
+                                      consumerContext={
+                                        Object {
+                                          "isOuia": false,
+                                          "ouiaId": null,
+                                        }
+                                      }
+                                    >
+                                      <Button
+                                        id="abort-button"
+                                        onClick={[Function]}
+                                        ouiaContext={
+                                          Object {
+                                            "isOuia": false,
+                                            "ouiaId": null,
+                                          }
+                                        }
+                                        variant="secondary"
+                                      >
+                                        <button
+                                          aria-disabled={null}
+                                          aria-label={null}
+                                          className="pf-c-button pf-m-secondary"
+                                          disabled={false}
+                                          id="abort-button"
+                                          onClick={[Function]}
+                                          tabIndex={null}
+                                          type="button"
+                                        >
+                                          Abort
+                                        </button>
+                                      </Button>
+                                    </ComponentWithOuia>
+                                  </Component>
+                                </div>
+                              </OverflowMenuGroup>
+                            </div>
+                          </OverflowMenuContent>
+                        </div>
+                      </OverflowMenu>
+                    </div>
+                  </SplitItem>
+                </div>
+              </Split>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetails
+                data={
+                  Object {
+                    "ProcessInstances": Array [
+                      Object {
+                        "addons": Array [
+                          "process-management",
+                        ],
+                        "businessKey": null,
+                        "childProcessInstances": Array [],
+                        "end": null,
+                        "endpoint": "http://localhost:4000",
+                        "error": Object {
+                          "message": "Something went wrong",
+                          "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                        },
+                        "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        "lastUpdate": "2019-10-22T03:40:44.089Z",
+                        "nodes": Array [
+                          Object {
+                            "definitionId": "StartEvent_1",
+                            "enter": "2019-10-22T04:43:01.135Z",
+                            "exit": "2019-10-22T04:43:01.135Z",
+                            "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                            "name": "StartProcess",
+                            "nodeId": "9",
+                            "type": "StartNode",
+                          },
+                        ],
+                        "parentProcessInstance": null,
+                        "parentProcessInstanceId": null,
+                        "processId": "Travels",
+                        "processName": "travels",
+                        "roles": Array [],
+                        "serviceUrl": "http://localhost:4000",
+                        "start": "2019-10-22T03:40:44.089Z",
+                        "state": "SUSPENDED",
+                        "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                      },
+                    ],
+                  }
+                }
+                from={
+                  Object {
+                    "prev": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetailsProcessVariables
+                data={
+                  Object {
+                    "ProcessInstances": Array [
+                      Object {
+                        "addons": Array [
+                          "process-management",
+                        ],
+                        "businessKey": null,
+                        "childProcessInstances": Array [],
+                        "end": null,
+                        "endpoint": "http://localhost:4000",
+                        "error": Object {
+                          "message": "Something went wrong",
+                          "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                        },
+                        "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        "lastUpdate": "2019-10-22T03:40:44.089Z",
+                        "nodes": Array [
+                          Object {
+                            "definitionId": "StartEvent_1",
+                            "enter": "2019-10-22T04:43:01.135Z",
+                            "exit": "2019-10-22T04:43:01.135Z",
+                            "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                            "name": "StartProcess",
+                            "nodeId": "9",
+                            "type": "StartNode",
+                          },
+                        ],
+                        "parentProcessInstance": null,
+                        "parentProcessInstanceId": null,
+                        "processId": "Travels",
+                        "processName": "travels",
+                        "roles": Array [],
+                        "serviceUrl": "http://localhost:4000",
+                        "start": "2019-10-22T03:40:44.089Z",
+                        "state": "SUSPENDED",
+                        "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                      },
+                    ],
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              className="pf-l-grid__item"
+            >
+              <MockedProcessDetailsTimeline
+                data={
+                  Object {
+                    "addons": Array [
+                      "process-management",
+                    ],
+                    "businessKey": null,
+                    "childProcessInstances": Array [],
+                    "end": null,
+                    "endpoint": "http://localhost:4000",
+                    "error": Object {
+                      "message": "Something went wrong",
+                      "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                    },
+                    "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                    "lastUpdate": "2019-10-22T03:40:44.089Z",
+                    "nodes": Array [
+                      Object {
+                        "definitionId": "StartEvent_1",
+                        "enter": "2019-10-22T04:43:01.135Z",
+                        "exit": "2019-10-22T04:43:01.135Z",
+                        "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                        "name": "StartProcess",
+                        "nodeId": "9",
+                        "type": "StartNode",
+                      },
+                    ],
+                    "parentProcessInstance": null,
+                    "parentProcessInstanceId": null,
+                    "processId": "Travels",
+                    "processName": "travels",
+                    "roles": Array [],
+                    "serviceUrl": "http://localhost:4000",
+                    "start": "2019-10-22T03:40:44.089Z",
+                    "state": "SUSPENDED",
+                    "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                  }
+                }
+              />
+            </div>
+          </GridItem>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+</ProcessDetailsPage>
+`;

@@ -16,9 +16,9 @@
   <description>Kogito Apps</description>
 
   <properties>
-    <version.io.quarkus>1.4.1.Final</version.io.quarkus>
+    <version.io.quarkus>1.6.0.Final</version.io.quarkus>
     <version.frontend.plugin>1.9.1</version.frontend.plugin>
-    <version.node>v11.6.0</version.node>
+    <version.node>v12.16.2</version.node>
     <version.npm>6.10.3</version.npm>
     <version.yarn>v1.19.1</version.yarn>
     <maven.compiler.release>11</maven.compiler.release>
@@ -55,13 +55,22 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kogito-apps-ui-packages</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <modules>
+    <module>persistence-commons</module>
     <module>jobs-service</module>
     <module>data-index</module>
+    <module>ui-packages</module>
     <module>management-console</module>
+    <module>task-console</module>
     <module>explainability-service</module>
     <module>trusty</module>
   </modules>

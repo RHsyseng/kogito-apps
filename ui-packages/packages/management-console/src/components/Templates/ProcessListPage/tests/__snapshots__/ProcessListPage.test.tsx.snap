@@ -1,0 +1,383 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProcessListPage component tests Snapshot tests for no status selected 1`] = `
+<EmptyState
+  variant="full"
+>
+  <div
+    className="pf-c-empty-state"
+  >
+    <EmptyStateIcon
+      color="var(--pf-global--warning-color--100)"
+      icon={[Function]}
+      size="sm"
+    >
+      <ExclamationTriangleIcon
+        aria-hidden="true"
+        className="pf-c-empty-state__icon"
+        color="var(--pf-global--warning-color--100)"
+        size="sm"
+      >
+        <MockedComponent />
+      </ExclamationTriangleIcon>
+    </EmptyStateIcon>
+    <Title
+      headingLevel="h5"
+      size="lg"
+    >
+      <h5
+        className="pf-c-title pf-m-lg"
+      >
+        No status is selected
+      </h5>
+    </Title>
+    <EmptyStateBody>
+      <div
+        className="pf-c-empty-state__body"
+      >
+        Try selecting at least one status to see results
+      </div>
+    </EmptyStateBody>
+    <Component
+      onClick={[Function]}
+      variant="link"
+    >
+      <ComponentWithOuia
+        component={[Function]}
+        componentProps={
+          Object {
+            "children": "Reset to default",
+            "onClick": [Function],
+            "variant": "link",
+          }
+        }
+        consumerContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+      >
+        <Button
+          onClick={[Function]}
+          ouiaContext={
+            Object {
+              "isOuia": false,
+              "ouiaId": null,
+            }
+          }
+          variant="link"
+        >
+          <button
+            aria-disabled={null}
+            aria-label={null}
+            className="pf-c-button pf-m-link"
+            disabled={false}
+            onClick={[Function]}
+            tabIndex={null}
+            type="button"
+          >
+            <span
+              className="pf-c-button__text"
+            >
+              Reset to default
+            </span>
+          </button>
+        </Button>
+      </ComponentWithOuia>
+    </Component>
+  </div>
+</EmptyState>
+`;
+
+exports[`ProcessListPage component tests error in query - with businesskey 1`] = `
+<EmptyState
+  variant="full"
+>
+  <div
+    className="pf-c-empty-state"
+  >
+    <EmptyStateIcon
+      color="var(--pf-global--danger-color--100)"
+      icon={[Function]}
+      size="md"
+    >
+      <ExclamationCircleIcon
+        aria-hidden="true"
+        className="pf-c-empty-state__icon"
+        color="var(--pf-global--danger-color--100)"
+        size="md"
+      >
+        <MockedComponent />
+      </ExclamationCircleIcon>
+    </EmptyStateIcon>
+    <Title
+      headingLevel="h1"
+      size="4xl"
+    >
+      <h1
+        className="pf-c-title pf-m-4xl"
+      >
+        Error fetching data
+      </h1>
+    </Title>
+    <EmptyStateBody>
+      <div
+        className="pf-c-empty-state__body"
+      >
+        An error occurred while accessing data.
+         
+        <Component
+          id="display-error"
+          isInline={true}
+          onClick={[Function]}
+          variant="link"
+        >
+          <ComponentWithOuia
+            component={[Function]}
+            componentProps={
+              Object {
+                "children": "See more details",
+                "id": "display-error",
+                "isInline": true,
+                "onClick": [Function],
+                "variant": "link",
+              }
+            }
+            consumerContext={
+              Object {
+                "isOuia": false,
+                "ouiaId": null,
+              }
+            }
+          >
+            <Button
+              id="display-error"
+              isInline={true}
+              onClick={[Function]}
+              ouiaContext={
+                Object {
+                  "isOuia": false,
+                  "ouiaId": null,
+                }
+              }
+              variant="link"
+            >
+              <button
+                aria-disabled={null}
+                aria-label={null}
+                className="pf-c-button pf-m-link pf-m-inline"
+                disabled={false}
+                id="display-error"
+                onClick={[Function]}
+                tabIndex={null}
+                type="button"
+              >
+                <span
+                  className="pf-c-button__text"
+                >
+                  See more details
+                </span>
+              </button>
+            </Button>
+          </ComponentWithOuia>
+        </Component>
+      </div>
+    </EmptyStateBody>
+    <Component
+      id="goback-button"
+      onClick={[Function]}
+      variant="primary"
+    >
+      <ComponentWithOuia
+        component={[Function]}
+        componentProps={
+          Object {
+            "children": "Go back",
+            "id": "goback-button",
+            "onClick": [Function],
+            "variant": "primary",
+          }
+        }
+        consumerContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+      >
+        <Button
+          id="goback-button"
+          onClick={[Function]}
+          ouiaContext={
+            Object {
+              "isOuia": false,
+              "ouiaId": null,
+            }
+          }
+          variant="primary"
+        >
+          <button
+            aria-disabled={null}
+            aria-label={null}
+            className="pf-c-button pf-m-primary"
+            disabled={false}
+            id="goback-button"
+            onClick={[Function]}
+            tabIndex={null}
+            type="button"
+          >
+            Go back
+          </button>
+        </Button>
+      </ComponentWithOuia>
+    </Component>
+  </div>
+</EmptyState>
+`;
+
+exports[`ProcessListPage component tests error in query - without businesskey 1`] = `
+<EmptyState
+  variant="full"
+>
+  <div
+    className="pf-c-empty-state"
+  >
+    <EmptyStateIcon
+      color="var(--pf-global--danger-color--100)"
+      icon={[Function]}
+      size="md"
+    >
+      <ExclamationCircleIcon
+        aria-hidden="true"
+        className="pf-c-empty-state__icon"
+        color="var(--pf-global--danger-color--100)"
+        size="md"
+      >
+        <MockedComponent />
+      </ExclamationCircleIcon>
+    </EmptyStateIcon>
+    <Title
+      headingLevel="h1"
+      size="4xl"
+    >
+      <h1
+        className="pf-c-title pf-m-4xl"
+      >
+        Error fetching data
+      </h1>
+    </Title>
+    <EmptyStateBody>
+      <div
+        className="pf-c-empty-state__body"
+      >
+        An error occurred while accessing data.
+         
+        <Component
+          id="display-error"
+          isInline={true}
+          onClick={[Function]}
+          variant="link"
+        >
+          <ComponentWithOuia
+            component={[Function]}
+            componentProps={
+              Object {
+                "children": "See more details",
+                "id": "display-error",
+                "isInline": true,
+                "onClick": [Function],
+                "variant": "link",
+              }
+            }
+            consumerContext={
+              Object {
+                "isOuia": false,
+                "ouiaId": null,
+              }
+            }
+          >
+            <Button
+              id="display-error"
+              isInline={true}
+              onClick={[Function]}
+              ouiaContext={
+                Object {
+                  "isOuia": false,
+                  "ouiaId": null,
+                }
+              }
+              variant="link"
+            >
+              <button
+                aria-disabled={null}
+                aria-label={null}
+                className="pf-c-button pf-m-link pf-m-inline"
+                disabled={false}
+                id="display-error"
+                onClick={[Function]}
+                tabIndex={null}
+                type="button"
+              >
+                <span
+                  className="pf-c-button__text"
+                >
+                  See more details
+                </span>
+              </button>
+            </Button>
+          </ComponentWithOuia>
+        </Component>
+      </div>
+    </EmptyStateBody>
+    <Component
+      id="goback-button"
+      onClick={[Function]}
+      variant="primary"
+    >
+      <ComponentWithOuia
+        component={[Function]}
+        componentProps={
+          Object {
+            "children": "Go back",
+            "id": "goback-button",
+            "onClick": [Function],
+            "variant": "primary",
+          }
+        }
+        consumerContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+      >
+        <Button
+          id="goback-button"
+          onClick={[Function]}
+          ouiaContext={
+            Object {
+              "isOuia": false,
+              "ouiaId": null,
+            }
+          }
+          variant="primary"
+        >
+          <button
+            aria-disabled={null}
+            aria-label={null}
+            className="pf-c-button pf-m-primary"
+            disabled={false}
+            id="goback-button"
+            onClick={[Function]}
+            tabIndex={null}
+            type="button"
+          >
+            Go back
+          </button>
+        </Button>
+      </ComponentWithOuia>
+    </Component>
+  </div>
+</EmptyState>
+`;
